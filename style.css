@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "IBM Plex Sans", serif;
+    overflow-x: hidden;
+}
+
+/* The Section */
+.section {
+    padding: 50px 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Video Section */
+.video-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Text Section */
+.section:first-of-type {
+    background-color: #ffffff;
+}
+
+.text-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Image Text Section */
+.image-text-section {
+    position: relative;
+    min-height: 100vh; /* Ensure section has full height */
+    background-color: transparent; /* Ensure section 3 background is transparent to show the photo */
+}
+
+/* Static Photo Container */
+.static-photo-container {
+    position: relative;
+    height: 100vh; /* Full height for the section */
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Initially, photo should be hidden */
+.static-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed; /* Start the image in absolute position */
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Text Block Styling */
+.text-blocks {
+    position: absolute;
+    top: 50%; /* Start text blocks in the center of the photo */
+    right: 8%;
+    transform: translateY(-50%); /* Center them vertically */
+    z-index: 1; /* Keep the text on top of the photo */
+    width: 40%;
+}
+
+/* Each text block */
+.text-block {
+    margin-bottom: 20px;
+    background-color: hsla(0, 93%, 41%, 0.753);
+    color: white;
+    padding: 20px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Start lower */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.text-block h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.text-block p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* When the text block is active, it will fade in and move up */
+.text-block.active {
+    opacity: 1;
+    transform: translateY(0); /* Move up */
+}
+
+
+.photo-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    justify-content: flex-start;  /* Align photos to the left */
+}
+
+.photo-item {
+    flex-shrink: 0; /* Prevent photos from shrinking */
+    width: 350px; /* You can adjust this size */
+    height: auto;
+    text-align: center;
+    scroll-snap-align: start; /* Ensures smooth scrolling */
+}
+
+.photo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+/* Scroll effects */
+img {
+    max-width: 100%;
+    display: block;
+}
